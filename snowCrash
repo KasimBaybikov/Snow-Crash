@@ -1,0 +1,23 @@
+/dev/shm directory for semaphores
+level00:level00
+solution:
+{
+	find -user flag00 /
+	in file john
+}
+level01:x24ti5gi3x0ol2eh4esiuxias
+solution:
+{
+	grep -r flag01 ./etc/ 2>/dev/null
+	in /etc/paswd 42hDRfypTqqnw
+	john --show file_with_hash
+	?:abcdefg
+
+	1 password hash cracked, 0 left
+}
+level02:f2av5il02puano7naaf6adaaf
+solution:
+{
+	tcpdump -r level02.pcap
+
+}
