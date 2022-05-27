@@ -6,11 +6,14 @@ level01@SnowCrash:~$ grep -r "flag01" /etc/ 2>/dev/null
 level01@SnowCrash:~$ cat /etc/passwd | grep flag01
 flag01:42hDRfypTqqnw:3001:3001::/home/flag/flag01:/bin/bash
 
-								42hDRfypTqqnw - это хэш пароля flag01
+42hDRfypTqqnw - это хэш пароля flag01
+
 docker build --rm .
 docker run -it <image id> sh
 / # echo "42hDRfypTqqnw" >> file
-								Используем bruteforce John The Ripper
+
+Используем bruteforce John The Ripper
+
 / # john file --show
 ?:abcdefg
 
