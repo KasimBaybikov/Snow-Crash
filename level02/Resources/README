@@ -1,1 +1,39 @@
-/ # tcpdump -r level02.pcap -XX | grep "0x00[4-9]0"
+/ # tcpdump -r level02.pcap -X
+
+Просмотрев на длину пакетов вытащил по тому колличеству байт сколько указано в length каждого пакета получилось:
+66
+74
+5f
+77
+61
+6e
+64
+72
+7f
+7f
+7f
+4e
+44
+52
+65
+6c
+7f
+4c
+30
+4c
+0d
+
+00
+0d
+0a
+
+01
+
+-> "\x66\x74\x5f\x77\x61\x6e\x64\x72\x7f\x7f\x7f\x4e\x44\x52\x65\x6c\x7f\x4c\x30\x4c\x0d\x00\x0d\x0a\x01"
+/ # python3
+>>>
+>>> "\x66\x74\x5f\x77\x61\x6e\x64\x72\x7f\x7f\x7f\x4e\x44\x52\x65\x6c\x7f\x4c\x30\x4c\x0d\x00\x0d\x0a\x01"
+'ft_wandr\x7f\x7f\x7fNDRel\x7fL0L\r\x00\r\n\x01'
+>>>
+
+=> ft_wandrNDRelL0l
