@@ -1,0 +1,68 @@
+level09@SnowCrash:~$ ./level09 "aaaaaaaa"
+abcdefgh
+
+
+Видно, что скрипт увеличивает значение символа на позицию в строке
+
+
+level09@SnowCrash:~$ cat token
+f4kmm6p|=�p�n��DB�Du{��
+
+Но в файле находятся не 1 байтные символы
+
+level09@SnowCrash:~$ hexdump -c token
+0000000   f   4   k   m   m   6   p   |   = 202 177   p 202   n 203 202
+0000010   D   B 203   D   u   { 177 214 211  \n
+000001a
+
+
+Получаем данную строку
+
+f   4   k   m   m   6   p   |   = 202 177   p 202   n 203 202 D   B 203   D   u   { 177 214 211 
+
+
+Cконвертировали эти символы в инты
+
+>>> a = [0x66, 0x34, 0x6b, 0x6d, 0x6d, 0x36, 0x70, 0x7c, 0x3d, 0x82, 0x7f, 0x70, 0x82, 0x6e, 0x83, 0x82, 0x44, 0x42, 0x83, 0x44, 0x75, 0x7b, 0x7f, 0x8c,  0x89, 0x0a]
+
+
+Написав простейший Декодер получаем
+
+>>> for i in range(len(a)):
+...     chr(a[i]-i)
+...
+'f'
+'3'
+'i'
+'j'
+'i'
+'1'
+'j'
+'u'
+'5'
+'y'
+'u'
+'e'
+'v'
+'a'
+'u'
+'s'
+'4'
+'1'
+'q'
+'1'
+'a'
+'f'
+'i'
+'u'
+'q'
+
+
+f3iji1ju5yuevaus41q1afiuq
+
+
+level09@SnowCrash:~$ su flag09
+Password:
+Don't forget to launch getflag !
+flag09@SnowCrash:~$ getflag
+Check flag.Here is your token : s5cAJpM8ev6XHw998pRWG728z
