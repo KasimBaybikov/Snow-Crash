@@ -23,8 +23,8 @@ for i in /opt/openarenaserver/* ; do
 done
 
 
-В данном скрипте видно что в директории /opt/openarenaserver/ ищутся исполняемы файли и сполняются, так как файл запущен от flag05 нам необходимо подсунуть ему getflag
-И сделать его исполняемым
+В данном скрипте видно что в директории /opt/openarenaserver/ ищутся исполняемы файли и сполняются, так как файл запущен от flag05
+нам необходимо подсунуть ему getflag, и сделать его исполняемым
 
 level05@SnowCrash:/opt/openarenaserver$ echo "/bin/getflag > /tmp/flag" > exploit; chmod +x exploit
 
