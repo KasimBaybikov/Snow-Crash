@@ -24,15 +24,14 @@ cat /etc/passwd | grep flag01
 42hDRfypTqqnw - это хэш пароля flag01
 
 ```
-docker build --rm -t i_level01 .;
-docker run --name level01 -it i_level01 sh;
+docker build --rm -t ilevel01 .;
+docker run --name level01 -it ilevel01 sh;
 ```
 
 Используем bruteforce John The Ripper
 ```
 john file
 john file --show
-
 ```
 > ?:abcdefg\
 \
