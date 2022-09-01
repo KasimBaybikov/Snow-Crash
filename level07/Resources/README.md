@@ -12,7 +12,7 @@ getegid()                                                                       
 geteuid()                                                                                                     = 2007\
 setresgid(2007, 2007, 2007, 0xb7e5ee55, 0xb7fed280)                                                           = 0\
 setresuid(2007, 2007, 2007, 0xb7e5ee55, 0xb7fed280)                                                           = 0\
-getenv("LOGNAME")                                                                                             = "level07" <------ Видно что тут берется переменная из LOGNAME\
+getenv("LOGNAME")                                                                                             = "level07" <------ `Видно что тут берется переменная из LOGNAME`\
 asprintf(0xbffff704, 0x8048688, 0xbfffff33, 0xb7e5ee55, 0xb7fed280)                                           = 18\
 system("/bin/echo level07 "level07\
  <unfinished ...>\
