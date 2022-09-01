@@ -38,11 +38,15 @@ $r = x($argv[1], $argv[2]); print $r;\
 
 
 В скрипте есть строка
-$a = preg_replace("/(\[x (.*)\])/e", "y(\"\\2\")", $a)
+
+<pre>
+$a = preg_replace("/(\[x (.*)\])/e", "y(\"\\2\")", $a)\
 								 ^
 								 |
 Это означает, что далее найденный паттерн выполниться в php коде, в нашем случае в функции y()
+</pre>
 
+<pre>
 preg_replace(
     string|array $pattern,
     string|array $replacement,
@@ -52,6 +56,7 @@ preg_replace(
 ): string|array|null
 preg_replace — Выполняет поиск и замену по регулярному выражению
 Выполняет поиск совпадений в строке subject с шаблоном pattern и заменяет их на replacement.
+</pre>
 
 Главное, чтобы то что пришло в subject удовлетворяло регулярке и выполнилось в коде
 
