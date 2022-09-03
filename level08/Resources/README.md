@@ -29,7 +29,7 @@ echo 123 > /tmp/file;
 ```
 ltrace ./level08 token
 ```
-> __libc_start_main(0x8048554, 2, 0xbffff7a4, 0x80486b0, 0x8048720 <unfinished ...>\
+> \_\_libc_start_main(0x8048554, 2, 0xbffff7a4, 0x80486b0, 0x8048720 <unfinished ...>\
 strstr("token", "token")                                                                                      = "token"\
 printf("You may not access '%s'\n", "token"You may not access 'token'\
 )                                                                  = 27\

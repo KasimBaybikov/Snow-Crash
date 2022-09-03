@@ -7,7 +7,7 @@ ls -l
 ```
 ltrace ./level07
 ```
-> __libc_start_main(0x8048514, 1, 0xbffff7b4, 0x80485b0, 0x8048620 <unfinished ...>\
+> \_\_libc_start_main(0x8048514, 1, 0xbffff7b4, 0x80485b0, 0x8048620 <unfinished ...>\
 getegid()                                                                                                     = 2007\
 geteuid()                                                                                                     = 2007\
 setresgid(2007, 2007, 2007, 0xb7e5ee55, 0xb7fed280)                                                           = 0\
