@@ -95,7 +95,7 @@ set $eax=0xbc6
 ```
 n
 ```
-> Single stepping until exit from function main,
-which has no line number information.
-Check flag.Here is your token : 7QiHafiNa3HVozsaXkawuYrTstxbpABHD8CPnHJ
+> Single stepping until exit from function main,\
+which has no line number information.\
+Check flag.Here is your token : 7QiHafiNa3HVozsaXkawuYrTstxbpABHD8CPnHJ\
 0xb7e454d3 in \_\_libc_start_main () from /lib/i386-linux-gnu/libc.so.6
